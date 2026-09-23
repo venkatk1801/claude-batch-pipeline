@@ -1,0 +1,32 @@
+[project]
+name = "claude-batch-pipeline"
+version = "0.1.0"
+description = "Bulk document processing with Anthropic's Batch API + structured outputs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "VenkataRamana Kandi" }]
+urls = { Repository = "https://github.com/venkatk1801/claude-batch-pipeline" }
+dependencies = [
+    "anthropic",
+    "jsonschema",
+    "python-dotenv",
+    "typer",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+batchpipe = "batchpipe.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/batchpipe"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
