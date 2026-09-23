@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "description": "One extracted trade from a trading journal entry.",
+  "properties": {
+    "date": {
+      "description": "Trade date in YYYY-MM-DD format.",
+      "type": "string"
+    },
+    "entry_price": {
+      "type": "number"
+    },
+    "exit_price": {
+      "type": "number"
+    },
+    "notes": {
+      "description": "One-sentence summary of the rationale or lesson.",
+      "type": "string"
+    },
+    "pnl": {
+      "description": "Realized profit/loss in USD (negative for a loss).",
+      "type": "number"
+    },
+    "quantity": {
+      "description": "Number of shares/contracts.",
+      "type": "number"
+    },
+    "sentiment": {
+      "description": "Trader's sentiment about the symbol at entry.",
+      "enum": [
+        "bullish",
+        "bearish",
+        "neutral"
+      ],
+      "type": "string"
+    },
+    "side": {
+      "description": "Direction of the trade.",
+      "enum": [
+        "long",
+        "short"
+      ],
+      "type": "string"
+    },
+    "symbol": {
+      "description": "Ticker symbol, e.g. SOFI.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "symbol",
+    "side",
+    "pnl",
+    "sentiment"
+  ],
+  "title": "TradeJournalEntry",
+  "type": "object"
+}
